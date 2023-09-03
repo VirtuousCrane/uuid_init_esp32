@@ -1,9 +1,7 @@
 #include <EEPROM.h>
+#include "uuid.h"
 
-#define EEPROM_SIZE 128 // Max Size = 512
-
-String uuid_1   = "c7986c21-1377-4820-92d5-49cbf4fc8418"; // UUID len = 36; len = 1, therefore 37
-String uuid_2   = "73d96f68-202a-4a5e-ba32-c0005ab56ce5";
+// UUID len = 36, len = 1, therefore 37
 
 int write_str_to_eeprom(int offset, const String &s);
 int read_str_from_eeprom(int offset, String *s);
