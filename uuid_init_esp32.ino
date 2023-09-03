@@ -19,21 +19,21 @@ void setup() {
 
   // Checks if UUID has been set
   int uuid1_len = EEPROM.read(0);
-  if (uuid1_len < 1) {
-    // Initializes the UUID into EEPROM
-    Serial.println("EEPROM not set. Initializing UUID from Preset values...");
-    int uuid_1_offset = write_str_to_eeprom(0, uuid_1);
-    int _uuid_2_offset = write_str_to_eeprom(uuid_1_offset, uuid_2);
+  //if (uuid1_len < 1) {
+  // Initializes the UUID into EEPROM
+  Serial.println("EEPROM not set. Initializing UUID from Preset values...");
+  int uuid_1_offset = write_str_to_eeprom(0, uuid_1);
+  int _uuid_2_offset = write_str_to_eeprom(uuid_1_offset, uuid_2);
 
-    if (EEPROM.commit()) {
-      Serial.println("Successfully written to EEPROM");
-    } else {
-      Serial.println("Failed to write to EEPROM");
-      while (true) {
-        Serial.print(".");
-      }
+  if (EEPROM.commit()) {
+    Serial.println("Successfully written to EEPROM");
+  } else {
+    Serial.println("Failed to write to EEPROM");
+    while (true) {
+      Serial.print(".");
     }
   }
+  //}
 
   // Reads UUID values from EEPROM
   int device_uuid_1_offset = read_str_from_eeprom(0, &device_uuid_1);
